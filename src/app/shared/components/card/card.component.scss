@@ -1,0 +1,44 @@
+@import 'utils/variables';
+@import 'utils/mixins';
+
+.pk-card {
+    max-width: 220px;
+    min-height: 285px;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    border: 5px solid var(--white);
+
+    @include for-size(phone-only) {
+        max-width: 200px;
+    }
+
+    &__image-container {
+        border-radius: 22px 22px 0 0;
+        padding: 20px;
+        min-height: 222px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            width: 100%;
+            min-width: 120px;
+
+            @include for-size(desktop-up) {
+                min-width: 170px;
+            }
+        }
+    }
+
+
+    &__name {
+        padding: 15px;
+        font-size: 20px;
+        background-color: #20B49C;
+        border-radius: 0 0 $card-radius $card-radius;
+        background-color: var(--white);
+        font-family: var(--font-mulish-bold);
+    }
+}

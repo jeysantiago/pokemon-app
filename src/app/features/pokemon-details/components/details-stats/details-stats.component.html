@@ -1,0 +1,9 @@
+<div class="pk-stats">
+    <h1 class="pk-lilita-md">Stats</h1>
+    <div>
+        <div class="pk-stats__row" *ngFor="let pokemonStat of pokemon.stats">
+            <label>{{ pokemonStat.stat.name | textFormatter }}</label>
+            <mat-progress-bar mode="determinate" [value]="pokemonStat.base_stat" pkExtractColor [imgSrc]="imgSrc" [type]="'progress'"></mat-progress-bar>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+@import 'utils/variables';
+@import 'utils/mixins';
+
+.pk-pokemon-list {
+
+    &__content {
+        margin-top: 40px;
+    }
+
+    &__header {
+        padding: 30px;
+        background-color: #F0F8FF;
+
+        @include for-size(tablet-portrait-up) {
+            padding: 40px;
+        }
+    }
+
+    &__input-container {
+        width: 100%;
+
+        @include for-size(tablet-portrait-up) {
+            width: 80%;
+        }
+    }
+
+    &__logo {
+        display: block;
+        margin: 0 auto;
+        max-width: 300px;
+
+        @include for-size(phone-only) {
+            max-width: 250px;
+        }
+    }
+
+    &__search-section {
+        margin: 40px auto 15px;
+        max-width: $list-page-maxWidth;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        gap: 20px;
+
+        @include for-size(tablet-portrait-up) {
+            flex-direction: row;
+        }
+    }
+
+    &__whos-that-pokemon {
+        width: 100%;
+
+        @include for-size(tablet-portrait-up) {
+            width: 300px;
+        }
+
+        button {
+            width: 100%;
+        }
+    }
+}

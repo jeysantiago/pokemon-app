@@ -1,0 +1,54 @@
+@import 'utils/variables';
+
+.pk-evolution {
+    padding: 60px $details-side-padding;
+    
+    &__evolution-container {
+        display: flex;
+        gap: 100px;
+        overflow-x: auto;
+        padding-bottom: 50px;
+    }
+
+    &__item {
+        position: relative;
+
+        &:not(:last-child)::after {
+            content: 'east';
+            font-family: 'Material Icons';
+            font-size: 50px;
+            position: absolute;
+            top: 50%;
+            right: -70px;
+            transform: translateY(-50%);
+        } 
+    }
+
+    // &__item {
+    //     display: flex;
+    //     align-items: center;
+    //     flex-direction: column;
+    //     gap: 120px;
+    //     position: relative;
+
+    //     &:not(:last-child)::after {
+    //         content: 'east';
+    //         font-family: 'Material Icons';
+    //         font-size: 50px;
+    //         position: absolute;
+    //         top: 20%;
+    //         right: -100%;
+    //     } 
+
+    //     img {
+    //         max-width: 200px;
+    //     }
+
+    //     label {
+    //         font-size: 24px;
+    //         font-family: var(--font-mulish-bold);
+    //     }
+        
+        
+    // }
+}

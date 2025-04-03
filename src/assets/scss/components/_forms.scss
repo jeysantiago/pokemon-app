@@ -1,0 +1,36 @@
+.pk-form {
+
+    input[type="text"] {
+        background-color: var(--white);
+        color: var(--gray);
+        padding: 20px 16px;
+        border-radius: 8px;
+        border: none;
+        width: 100%;
+
+        &:focus {
+            outline: none;
+        }
+
+        &::placeholder {
+            color: var(--gray);
+            font-family: var(--font-mulish-semibold);
+            font-size: 16px;
+        }
+
+    }
+
+    &__input-container {
+        position: relative;
+    
+        mat-icon {
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            color: var(--gray);
+        }
+     
+    }
+    
+}

@@ -1,0 +1,28 @@
+<ng-container *ngIf="isLoading && isInitialLoad; else listTemp">
+    <pk-loading></pk-loading>
+</ng-container>
+
+<ng-template #listTemp>
+    <div class="pk-pokemon-list">
+        <div class="pk-pokemon-list__header">
+            <img src="assets/images/logo.svg" class="pk-pokemon-list__logo" alt="Logo">
+            <div class="pk-form pk-pokemon-list__search-section">
+                <div class="pk-form__input-container pk-pokemon-list__input-container">
+                    <form [formGroup]="searchForm">
+                        <input type="text" placeholder="Search" formControlName="search">
+                        <mat-icon>search</mat-icon>
+                    </form>
+                </div>
+                <div class="pk-pokemon-list__whos-that-pokemon">
+                    <button type="button" class="pk-btn pk-btn--blue">
+                        Who's that pokemon?
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="pk-pokemon-list__content">
+            <pk-list [pokemons$]="pokemons$"></pk-list>
+        </div>
+    </div>
+</ng-template>
+

@@ -1,0 +1,9 @@
+<div class="pk-card" (click)="onClick()">
+    <div class="pk-card__image-container" pkExtractColor [imgSrc]="imgSrc">
+        <img [src]="imgSrc" [alt]="name" />
+    </div>
+    <div class="pk-card__name">
+        {{ name | titlecase }}
+    </div>
+</div>
+

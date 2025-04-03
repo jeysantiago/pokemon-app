@@ -1,0 +1,105 @@
+@import 'utils/variables';
+@import 'utils/mixins';
+
+
+.pk-details-header {
+
+    &__col {
+
+        &.image-col {
+            min-width: 550px;
+            min-height: 700px;
+
+            @include for-size(phone-only) {
+                min-width: 100%;
+                min-height: 350px;
+            }
+        }
+
+        &.image-col > div {
+            position: absolute;
+            top: -120px;
+            left: -110px;
+        }
+    }
+
+    &__description {
+        margin: 40px 0;
+    }
+
+    &__logo {
+        z-index: 2;
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        max-width: 200px;
+        cursor: pointer;
+
+        @include for-size(phone-only) {
+            max-width: 120px;
+        }
+    }
+
+    &__order {
+        position: absolute;
+        font-size: 30px;
+        top: 10px;
+        right: 15px;
+        font-family: var(--font-lilita-regular);
+        font-style: italic;
+        opacity: 0.3;
+
+        @include for-size(desktop-up) {
+            font-size: var(--font-size-lg);
+            top: 5%;
+            right: 5%;
+        }
+    }
+    
+    &__pokemon-name {
+        margin: 0 0 20px;
+    }
+
+    &__row {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 20px;
+
+        @include for-size(desktop-up) {
+            flex-direction: row;
+        }
+    }
+
+    &__size {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    &__size-item {
+        color: var(--dark);
+        background-color: var(--white);
+        display: flex;
+        align-items: center;
+        padding: 10px 15px;
+        max-width: 200px;
+        min-width: 200px;
+        border-radius: 8px;
+        justify-content: center;
+        gap: 14px;
+
+        @include for-size(phone-only) {
+            min-width: 120px;
+        }
+
+        .size {
+            font-family: var(--font-mulish-medium);
+            font-size: 14px;
+        }
+
+        .size-value {
+            font-family: var(--font-mulish-bold);
+        }
+    }
+}

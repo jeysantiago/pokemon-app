@@ -1,0 +1,14 @@
+<div class="pk-abilities">
+    <h1 class="pk-lilita-md">Abilities</h1>
+    <div class="pk-abilities__items">
+        <div class="pk-abilities__item" *ngFor="let pokemonAbility of pokemon.abilities">
+            <label pkExtractColor [imgSrc]="imgSrc" [type]="'text'">
+                {{ pokemonAbility.ability.name | textFormatter }}
+            </label>
+            <p>
+                {{ pokemonAbility.ability.description }}
+            </p>
+        </div>
+    </div>
+    
+</div>

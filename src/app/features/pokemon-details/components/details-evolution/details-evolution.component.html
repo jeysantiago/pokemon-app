@@ -1,0 +1,16 @@
+<div class="pk-evolution" pkExtractColor [imgSrc]="imgSrc">
+    <h1 class="pk-lilita-md">Evolution</h1>
+    <div class="pk-evolution__evolution-container">
+        <!-- <div class="pk-evolution__item" *ngFor="let evolution of pokemon.evolution_chain">
+            <img [src]="imageBaseUrl + '/' + evolution.id + '.png'" />
+            <label>{{ evolution.name | titlecase }}</label>
+        </div> -->
+        <div class="pk-evolution__item" *ngFor="let evolution of pokemon.evolution_chain">
+            <pk-card
+                [name]="evolution.name"
+                [imgSrc]="imageBaseUrl + '/' + evolution.id + '.png'"
+                (cardClick)="onCardClick(evolution.name)"
+            ></pk-card>
+        </div>
+    </div>
+</div>

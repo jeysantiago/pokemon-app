@@ -1,0 +1,37 @@
+<div class="pk-details-header">
+    <img src="assets/images/logo.svg" class="pk-details-header__logo" (click)="backToHome()" />
+    <label class="pk-details-header__order">#{{ pokemon.order }}</label>
+    <div class="pk-details-header__row">
+        <div class="pk-details-header__col image-col">
+            <div>
+                <pk-details-image [id]="pokemon.id"></pk-details-image>
+            </div>
+        </div>
+        <div class="pk-details-header__col info-col">
+            <h1 class="pk-details-header__pokemon-name pk-lilita-lg" pkExtractColor [imgSrc]="imgSrc" [type]="'text'">
+                {{ pokemon.name | titlecase }}
+            </h1>
+            <div class="pk-details-header__types">
+                <ng-container *ngFor="let pokemonType of pokemon.types">
+                    <pk-type-pill [type]="pokemonType.type.name | titlecase"></pk-type-pill>
+                </ng-container>
+            </div>
+            <div class="pk-details-header__description">
+                <p *ngFor="let description of pokemon.descriptions">
+                    {{ description }}
+                </p>
+            </div>
+            <div class="pk-details-header__size">
+                <div class="pk-details-header__size-item">
+                    <span class="size">Weight</span>
+                    <span class="size-value">{{ pokemon.weight | hectogramsToKg }} kg</span>
+                </div>
+                <div class="pk-details-header__size-item">
+                    <span class="size">Height</span>
+                    <span class="size-value">{{ pokemon.height | decimetersToFeet }} ft</span>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+@import 'utils/mixins';
+
+.pk-abilities {
+
+    &__items {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr); 
+        gap: 20px;
+
+        @include for-size(desktop-up) {
+            grid-template-columns: repeat(3, 1fr); 
+        }
+    }
+
+    &__item {
+        width: 100%;
+        background-color: var(--white);
+        padding: 30px;
+        border-radius: 15px;
+
+        label {
+            font-family: var(--font-mulish-bold);
+            font-size: 24px;
+            color: #FF9441;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+}
