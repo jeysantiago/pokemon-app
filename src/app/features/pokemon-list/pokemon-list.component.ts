@@ -12,6 +12,7 @@ export class PokemonListComponent implements OnInit, OnDestroy {
  
   isInitialLoad!: boolean;
   isLoading: boolean = false;
+  isSearchLoading: boolean = false;
   isSearching!: boolean;
   pokemons$!: Observable<any>;
   searchForm!: FormGroup;
@@ -43,7 +44,6 @@ export class PokemonListComponent implements OnInit, OnDestroy {
     this.isInitialLoad = true;
     this.fetchPokemons();
     this.pokemons$ = this.pokemonService.getPokemons$();
-    this.pokemons$.subscribe(console.log)
   }
 
   ngOnDestroy(): void {
@@ -74,12 +74,13 @@ export class PokemonListComponent implements OnInit, OnDestroy {
         takeUntil(this.destroyed$)
       ).subscribe({
         next: (searchTerm: string) => {
-          this.isLoading = true;
+          this.isSearchLoading = true;
 
           if (searchTerm.length === 0) {
             this.pokemonService.resetPokemons();
             this.fetchPokemons();
             this.isSearching = false;
+            this.isSearchLoading = false;
             return;
           }
          
@@ -87,7 +88,7 @@ export class PokemonListComponent implements OnInit, OnDestroy {
           this.pokemonService.searchPokemon(searchTerm)
             .pipe(takeUntil(this.destroyed$))
             .subscribe({
-              next: () => this.isLoading = false
+              next: () => this.isSearchLoading = false
             })
         }
       })

@@ -93,7 +93,6 @@ export class PokemonService {
     return this.pokemonDataService.searchPokemon(searchTerm)
       .pipe(
         map((response: NamedUrl[]) => {
-          console.log(response)
           const searchResult = response.map((item: NamedUrl) => (
             {
               id: this.utilsService.extractPokemonIdFromUrl(item.url),
@@ -108,7 +107,6 @@ export class PokemonService {
 
   searchErrorHandler(error: HttpErrorResponse) {
     if (error.status === 404) {
-      console.log('test')
       this.setPokemons([]);
     }
     return throwError(

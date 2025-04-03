@@ -7,6 +7,14 @@
         margin-top: 40px;
     }
 
+    &__form {
+        width: 100%;
+
+        @include for-size(tablet-portrait-up) {
+            width: 80%;
+        }
+    }
+
     &__header {
         padding: 30px;
         background-color: #F0F8FF;
@@ -16,12 +24,11 @@
         }
     }
 
-    &__input-container {
-        width: 100%;
-
-        @include for-size(tablet-portrait-up) {
-            width: 80%;
-        }
+    &__input-container mat-spinner {
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
     }
 
     &__logo {

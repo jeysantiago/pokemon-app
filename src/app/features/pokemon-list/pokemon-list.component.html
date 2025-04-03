@@ -7,12 +7,18 @@
         <div class="pk-pokemon-list__header">
             <img src="assets/images/logo.svg" class="pk-pokemon-list__logo" alt="Logo">
             <div class="pk-form pk-pokemon-list__search-section">
-                <div class="pk-form__input-container pk-pokemon-list__input-container">
-                    <form [formGroup]="searchForm">
+                <form class="pk-pokemon-list__form" [formGroup]="searchForm">
+                    <div class="pk-form__input-container pk-pokemon-list__input-container">
                         <input type="text" placeholder="Search" formControlName="search">
-                        <mat-icon>search</mat-icon>
-                    </form>
-                </div>
+                        <ng-container *ngIf="isSearchLoading; else searchTemp">
+                            <mat-spinner class="spinner" [diameter]="20"></mat-spinner>
+                        </ng-container>
+                        <ng-template #searchTemp>
+                            <mat-icon>search</mat-icon>
+                        </ng-template>
+                    </div>
+                </form>
+                
                 <div class="pk-pokemon-list__whos-that-pokemon">
                     <button type="button" class="pk-btn pk-btn--blue">
                         Who's that pokemon?
