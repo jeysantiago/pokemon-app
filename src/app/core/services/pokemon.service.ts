@@ -100,17 +100,8 @@ export class PokemonService {
             }
           ))
           this.setPokemons([...searchResult]);
-        }),
-        catchError(this.searchErrorHandler)
+        })
       );
-  }
-
-  searchErrorHandler(error: HttpErrorResponse) {
-    if (error.status === 404) {
-      this.setPokemons([]);
-    }
-    return throwError(
-      'Something bad happened; please try again later.');
   }
 
   private fetchPokemonBySpecies(name: string): Observable<Species> {

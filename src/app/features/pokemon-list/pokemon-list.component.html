@@ -27,7 +27,19 @@
             </div>
         </div>
         <div class="pk-pokemon-list__content">
-            <pk-list [pokemons$]="pokemons$"></pk-list>
+            <ng-container *ngIf="isError; else viewTemp">
+                <pk-error [isFixedPos]="false" [text]="'No Pokémons to be found—where’d they go?'"></pk-error>
+            </ng-container>
+            
+            <ng-template #viewTemp>
+                <ng-container *ngIf="isSearchLoading; else listTemp">
+                    <pk-loading [isFixedPos]="false"></pk-loading>
+                </ng-container>
+    
+                <ng-template #listTemp>
+                    <pk-list [pokemons$]="pokemons$"></pk-list>
+                </ng-template>
+            </ng-template>
         </div>
     </div>
 </ng-template>

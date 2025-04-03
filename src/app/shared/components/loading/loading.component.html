@@ -1,4 +1,4 @@
-<div class="pk-loading">
+<div class="pk-loading" [ngStyle]="{'position': isFixedPos ? 'fixed' : 'static'}">
     <img src="assets/images/pokeball.png" class="pk-loading__img animate__animated animate__bounce animate__infinite">
     <label class="pk-loading__label">{{ text }}</label>
 </div>

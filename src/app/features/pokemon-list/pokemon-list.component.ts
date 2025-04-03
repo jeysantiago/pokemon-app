@@ -10,6 +10,7 @@ import { PokemonService } from 'src/app/core/services/pokemon.service';
 })
 export class PokemonListComponent implements OnInit, OnDestroy {
  
+  isError!: boolean;
   isInitialLoad!: boolean;
   isLoading: boolean = false;
   isSearchLoading: boolean = false;
@@ -81,6 +82,7 @@ export class PokemonListComponent implements OnInit, OnDestroy {
             this.fetchPokemons();
             this.isSearching = false;
             this.isSearchLoading = false;
+            this.isError = false;
             return;
           }
          
@@ -88,7 +90,11 @@ export class PokemonListComponent implements OnInit, OnDestroy {
           this.pokemonService.searchPokemon(searchTerm)
             .pipe(takeUntil(this.destroyed$))
             .subscribe({
-              next: () => this.isSearchLoading = false
+              next: () => this.isSearchLoading = false,
+              error: () => {
+                this.isError = true;
+                this.isSearchLoading = false;
+              }
             })
         }
       })

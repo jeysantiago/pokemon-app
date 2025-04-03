@@ -4,12 +4,14 @@ import { CardComponent } from './components/card/card.component';
 import { CoreModule } from '../core/core.module';
 import { TypePillComponent } from './components/type-pill/type-pill.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
   declarations: [
     CardComponent,
     TypePillComponent,
-    LoadingComponent
+    LoadingComponent,
+    ErrorComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { LoadingComponent } from './components/loading/loading.component';
   exports: [
     CardComponent,
     TypePillComponent,
-    LoadingComponent
+    LoadingComponent,
+    ErrorComponent
   ]
 })
 export class SharedModule { }

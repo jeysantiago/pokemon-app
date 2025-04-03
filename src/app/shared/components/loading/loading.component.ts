@@ -8,6 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class LoadingComponent implements OnInit {
 
   @Input() text: string = 'Hang tight! We’re just catching them all...';
+  @Input() isFixedPos: boolean = true;
+
   constructor() { }
 
   ngOnInit(): void {

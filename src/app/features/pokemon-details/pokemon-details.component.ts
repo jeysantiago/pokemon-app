@@ -11,6 +11,7 @@ import { PokemonService } from 'src/app/core/services/pokemon.service';
 })
 export class PokemonDetailsComponent implements OnInit, OnDestroy {
 
+  isError: boolean = false;
   isLoading: boolean = false;
   pokemon!: Pokemon;
   pokemonName!: string;
@@ -46,11 +47,11 @@ export class PokemonDetailsComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (pokemon) => {
           this.pokemon = pokemon;
-          console.log(this.pokemon);
           this.isLoading = false;
         },
         error: () => {
           this.isLoading = false;
+          this.isError = true;
         }
       });
   }

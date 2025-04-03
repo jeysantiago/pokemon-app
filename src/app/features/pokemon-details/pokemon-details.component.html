@@ -1,20 +1,26 @@
 
-<div class="pk-details" *ngIf="!isLoading && pokemon; else loadingTemp">
-    <div class="pk-details__header-container px-10-percent">
-        <pk-details-header [pokemon]="pokemon"></pk-details-header>
+<ng-container *ngIf="isError; else detailsTemp">
+    <pk-error [text]="'Uh-oh, this Pokémon must be hiding somewhere!'"></pk-error>
+</ng-container>
+<ng-template #detailsTemp>
+    <div class="pk-details" *ngIf="!isLoading && pokemon && !isError; else loadingTemp">
+        <div class="pk-details__header-container px-10-percent">
+            <pk-details-header [pokemon]="pokemon"></pk-details-header>
+        </div>
+        <div class="pk-details__stats-container px-10-percent mb-130">
+            <pk-details-stats [pokemon]="pokemon"></pk-details-stats>
+        </div>
+        <div class="pk-details__abilities-container px-10-percent mb-130">
+            <pk-details-abilities [pokemon]="pokemon"></pk-details-abilities>
+        </div>
+        <div class="pk-details__evolution-container">
+            <pk-details-evolution [pokemon]="pokemon"></pk-details-evolution>
+        </div>
     </div>
-    <div class="pk-details__stats-container px-10-percent mb-130">
-        <pk-details-stats [pokemon]="pokemon"></pk-details-stats>
-    </div>
-    <div class="pk-details__abilities-container px-10-percent mb-130">
-        <pk-details-abilities [pokemon]="pokemon"></pk-details-abilities>
-    </div>
-    <div class="pk-details__evolution-container">
-        <pk-details-evolution [pokemon]="pokemon"></pk-details-evolution>
-    </div>
-</div>
-
-<ng-template #loadingTemp>
-    <pk-loading [text]="(pokemonName | titlecase)  + ' is coming out of its Pokéball!'"></pk-loading>
+    
+    <ng-template #loadingTemp>
+        <pk-loading [text]="(pokemonName | titlecase)  + ' is coming out of its Pokéball!'"></pk-loading>
+    </ng-template>
 </ng-template>
+
 

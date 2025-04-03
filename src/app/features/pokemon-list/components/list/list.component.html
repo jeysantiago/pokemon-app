@@ -2,6 +2,7 @@
     <mat-grid-list [cols]="cols" rowHeight="300px" gutterSize="30px">
         <mat-grid-tile style="width: 100%" *ngFor="let pokemon of (pokemons$ | async)">
             <pk-card
+                style="width: 100%"
                 [name]="pokemon.name"
                 [imgSrc]="imageBaseUrl + '/' + pokemon.id + '.png'"
                 (cardClick)="onCardClick(pokemon.name)"
