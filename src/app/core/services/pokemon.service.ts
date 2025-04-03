@@ -90,7 +90,7 @@ export class PokemonService {
     );
   }
   searchPokemon(searchTerm: string) {
-    return this.pokemonDataService.searchPokemon(searchTerm)
+    return this.pokemonDataService.searchPokemon(searchTerm.toLocaleLowerCase())
       .pipe(
         map((response: NamedUrl[]) => {
           const searchResult = response.map((item: NamedUrl) => (
